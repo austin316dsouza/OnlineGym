@@ -16,6 +16,12 @@
             if($email==$row["email"] && $pass==$row["password"]){
                 $_SESSION["uname"]= $row["username"];
                 $_SESSION["uid"]= $row["uid"];
+                $_SESSION["email"]= $row["email"];
+                $_SESSION["phone"]= $row["phone"];
+                $_SESSION["dob"]= $row["dob"];
+                $_SESSION["height"]= $row["height"];
+                $_SESSION["weight"]= $row["weight"];
+                $_SESSION["bio"]= $row["bio"];
                 $found = true;
             
                 header("location:../home.php");

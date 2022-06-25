@@ -46,7 +46,7 @@
                 <br><br>
 
                 <label for="weight">Weight :</label>
-                <input type="number" name="weight">
+                <input type="float" name="weight">
                 <select name="unit" id="">
                     <option value="kg">KG</option>
                     <option value="lbs">LBS</option>
@@ -55,7 +55,7 @@
                 <br><br><br>
 
                 <label for="height">Height :</label>
-                <input type="number" name="height">
+                <input type="float" name="height">
                 <select name="hUnit" id="">
                     <option value="feet">FT</option>
                     <option value="cms">CMS</option>
