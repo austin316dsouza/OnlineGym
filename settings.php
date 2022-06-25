@@ -1,5 +1,10 @@
 <?php 
+   
     session_start();
+    if(!$_SESSION["uname"])
+    {
+        header("location:./login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,30 +149,9 @@
         </div>
     </section>
 
-    <footer style="margin-top: 100px;">
-        <div class="waves">
-            <div class="wave" id="wave1"></div>
-            <div class="wave" id="wave2"></div>
-            <div class="wave" id="wave3"></div>
-            <div class="wave" id="wave4"></div>
-        </div>
-        <ul class="social-icon">
-            <li><a href="">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a></li>
-            <li><a href="">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a></li>
-            <li><a href="">
-                    <ion-icon name="logo-whatsapp"></ion-icon>
-                </a></li>
-            <li><a href="">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                </a></li>
-        </ul>
-        <p>©Austin & Praharsh | All Rights Reserved</p>
-    </footer>
+    <?php include("./footer.php"); ?>
 
+   
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

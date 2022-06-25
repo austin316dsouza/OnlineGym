@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li class="list">
-                    <a href="login.php">
+                    <a href="logout.php">
                         <span class="icon">
                             <ion-icon name="exit-outline"></ion-icon>
                         </span>
