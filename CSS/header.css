@@ -1,0 +1,93 @@
+header {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px 0px;
+    height: 100px;
+    display: block;
+    z-index: 5;
+    background: linear-gradient(#004d0db6, #017a11b7);
+    position: sticky;
+    top: 0px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    top: 0px;
+}
+
+.navigation img {
+    position: absolute;
+    left: 80px;
+    top: 20px;
+    height: 60px;
+    width: 70px;
+
+    border: 6px double yellowgreen;
+}
+
+.navigation ul {
+    display: flex;
+    position: relative;
+
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 250px;
+    height: 60px;
+    left: 150px;
+    top: 20px;
+
+}
+
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 2.3em;
+    text-align: center;
+    transition: 0.7s;
+    color: rgb(0, 0, 0);
+}
+
+.navigation ul li:hover a .icon {
+    transform: translateY(-25px);
+    color: greenyellow;
+
+}
+
+.navigation ul li a .text {
+    position: absolute;
+    color: black;
+    font-weight: 800;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+
+}
+
+.navigation ul li:hover a .text {
+    opacity: 1;
+    transform: translateY(10px);
+    color: greenyellow;
+
+}

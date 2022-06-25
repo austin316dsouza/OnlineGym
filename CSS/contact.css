@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+html::-webkit-scrollbar {
+    width: .5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.253);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #00ff2ab6;
+    border-radius: 20px;
+    width: 20px;
+}
+
+body {
+    background-color: black;
+    height: '100%'
+}
+.container{
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    margin-left: 350px;
+}
+.col-1{
+    flex-basis: 40%;
+    position: relative;
+    margin-left: 50px;
+}
+.col-1 h2{
+    color: white;
+    font-size: 54px;
+}
+.col-1 h4{
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    margin: 20px 0 10px;
+}
+.col-1::after{
+    content: '';
+    width: 8px;
+    height: 100%;
+    position: absolute;
+    left: -40px;
+    top: 8px;
+}
+.col-2{
+    position: relative;
+    flex-basis: 60%;
+    display: flex;
+    align-items: center;
+}
+.col-2 .controller{
+    width: 40%;
+}
+.color-box{
+    position: absolute;
+    top: 0px;
+    left: -150px;
+    background: linear-gradient(#d89400,#ffffff,#15ff00);
+    border-radius: 20px 0 0 20px;
+    box-shadow: 15px 5px 25px black;
+    height: 100%;
+    width: 43%;
+    z-index: -1;
+    transform: translateX(150px);
+}
+
+#contact {
+    padding: 30px 0px;
+    color: white;
+}
+
+.services-info {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.services-info h1 {
+    font-size: 50px;
+}
+
+.services-info p {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.services-row {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-auto-rows: minmax(250px, auto);
+    grid-gap: 2em;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.contact-left-col {
+    flex-basis: 50%;
+    padding-top: 50px;
+
+}
+
+.contact-right-col {
+    flex-basis: 50%;
+    max-width: 450px;
+    margin: auto;
+}
+
+.contact-right-col ion-icon {
+    font-size: 25px;
+    padding: 10px;
+    background: yellowgreen;
+    color: black;
+    border-radius: 30px;
+    vertical-align: middle;
+}
+
+.contact-right-col p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.form input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.c_btn {
+    background: yellowgreen;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    padding: 5px;
+    width: 30%;
+    border: none;
+    transition: .5s linear;
+}
+.c_btn:hover {
+    transform: scale(1.2);
+    background: linear-gradient(150deg, #4e4e4eb7 0%, rgb(0, 0, 0) 90%);
+    color: yellowgreen;
+}

@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+html::-webkit-scrollbar {
+    width: .5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.253);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #00ff2ab6;
+    border-radius: 20px;
+    width: 20px;
+}
+
+body {
+    background-color: black;
+    height: '100%'
+}
+
+.status {
+    color: white;
+    margin-left: 50px;
+    display: flex;
+}
+
+.option {
+    position: relative;
+    display: block;
+    top: 0px;
+    left: 1100px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#select1 {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    font-size: 4.5em;
+}
+
+#upar {
+    position: absolute;
+    top: 50px;
+    left: 1000px;
+}
+
+#downar {
+    position: absolute;
+    top: 50px;
+}
+
+.startTimer {
+    width: 100%;
+    position: sticky;
+    top: 110px;
+    background: linear-gradient(#004d0db6, #017a11b7);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#timer {
+    color: yellowgreen;
+    font-size: 2.2em;
+    position: relative;
+    display: inline-block;
+    left: 60%;
+    top: 20px;
+}
+
+#timer p {
+    font-size: 1.2em;
+}
+
+.startTimer button {
+    position: relative;
+    left: 40%;
+    background: yellowgreen;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    padding: 0.7em 1.5em;
+    border: none;
+    transition: .5s linear;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.startTimer button:hover {
+    transform: scale(1.2);
+    background: linear-gradient(150deg, #4e4e4eb7 0%, rgb(0, 0, 0) 90%);
+    color: yellowgreen;
+}
+
+.excercises {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exercise {
+    width: 40%;
+    background: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    box-shadow: 20px 20px 20px green;
+}
+
+.exercise img {
+    width: 600px;
+    height: 400px;
+}
+
+button {
+    width: 120px;
+    height: 50px;
+    background: yellowgreen;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    padding: 0.7em 1.5em;
+    border: none;
+}
+
+p {
+    font-size: 20px;
+    font-weight: 800;
+}
+h2{
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+.jojobtn{
+    margin: 15px;
+    border-radius: 30px;
+}
