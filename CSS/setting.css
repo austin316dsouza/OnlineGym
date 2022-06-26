@@ -57,10 +57,21 @@ body {
 .nav-pills a.nav-link i {
 	width: 20px;
 }
-
+.img-circle{
+    position: relative;
+    left: -100px;
+}
 .img-circle img {
 	height: 300px;
 	width: 300px;
 	border-radius: 100%;
 }
-
+.name-ses{
+    position: relative;
+    left: 0px;
+    margin-bottom: 10px;
+}
+.new-container{
+    width: 700px;
+    height: 500px;
+}

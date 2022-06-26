@@ -53,7 +53,7 @@
     mysqli_close($conn);
     ?>
 
-    <section class="py-5 my-5">
+    <section class=" py-5 my-5">
         <div class="container">
             <h1 style="color: white;" class="mb-5">Account Settings</h1>
             <div class="bg-white shadow rounded-lg d-block d-sm-flex" style="background-color: black; color: white;">
@@ -62,7 +62,7 @@
                         <div class="img-circle text-center mb-3" style="background-color: black;">
                             <img src="img/user.jpg" alt="Image" class="shadow">
                         </div>
-                        <h4 class="text-center"><?php echo $_SESSION["uname"];?></h4>
+                        <h4 class="name-ses text-center"><?php echo $_SESSION["uname"];?></h4>
                     </div>
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background-color: black;">
                         <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab"
@@ -77,7 +77,7 @@
                         </a>
                     </div>
                 </div>
-                <form action="./settings.php" method="post">
+                <form class="div-form" action="./settings.php" method="post">
                 <div class="tab-content p-4 p-md-5" id="v-pills-tabContent" style="background-color: black; color: #fff;">
                     <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
                         <h3 class="mb-4">Account Settings</h3>
@@ -144,7 +144,7 @@
                             <button class="btn btn-light">Cancel</button>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                    <div class="tab-pane fade new-container" id="password" role="tabpanel" aria-labelledby="password-tab">
                         <h3 class="mb-4">Password Settings</h3>
                         <div class="row">
                             <div class="col-md-6">
