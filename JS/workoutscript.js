@@ -10,7 +10,8 @@ var buttonCount = document.getElementById("button-count");
 var buttonReset = document.getElementById("button-reset");
 var interval;
 let counter = 0;
-let daynum = 1;
+let daynum = 1; // initialise daynum value from stats DB... default 1
+let temp = 0;
 function startTimer() {
   tens++;
   if (tens < 9) {
@@ -52,24 +53,35 @@ function DoneCounter(btn) {
     appendcounter.innerHTML = counter;
     console.log(counter);
     let Btnstyle = document.getElementById(btn)
-    Btnstyle.style.fontSize="20px"
-    Btnstyle.innerHTML="👍✅"
+    Btnstyle.style.fontSize = "20px"
+    Btnstyle.innerHTML = "👍✅"
 
-    Btnstyle.style.backgroundColor="white"
+    Btnstyle.style.backgroundColor = "white"
   }
   if (counter == 12) {
-    alert("congrats!!")
+    const time = seconds * 60 + tens;
+    temp = temp + time;
+    console.log(temp);
+    clearInterval(interval);
+    tens = "00";
+    seconds = "00";
+    appendSeconds.innerHTML = seconds;
+    appendTens.innerHTML = tens;
+    //save temp in DB
+    alert("congrats!! You can Have Rest Now")
+    //save daynum in DB
     daynum++;
-    if(daynum==31){
-      daynum =0;
+    if (daynum == 31) {
+      alert("congrats!! You Have Completed 30 days of Fitness course")
+      daynum = 0;
     }
-    counter=0;
+    counter = 0;
     appendcounter.innerHTML = counter;
     appendday.innerHTML = daynum;
-    const btns= document.querySelectorAll(".jojobtn");
-     btns.forEach(ele=> {
-      ele.style.backgroundColor="yellowgreen";
-      ele.innerHTML="Done"
+    const btns = document.querySelectorAll(".jojobtn");
+    btns.forEach(ele => {
+      ele.style.backgroundColor = "yellowgreen";
+      ele.innerHTML = "DONE"
     }
     )
   }
