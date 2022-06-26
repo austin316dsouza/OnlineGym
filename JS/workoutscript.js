@@ -68,7 +68,6 @@ function DoneCounter(btn) {
     appendday.innerHTML = daynum;
     const btns= document.querySelectorAll(".jojobtn");
      btns.forEach(ele=> {
-      console.log(ele);
       ele.style.backgroundColor="yellowgreen";
       ele.innerHTML="Done"
     }

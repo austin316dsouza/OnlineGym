@@ -10,6 +10,7 @@
     $height = $_POST["height"];
 
     $querry= "insert into user(username,email,password,gender,dob,weight,height) values('".$username."','".$email."','".$pass."','".$gender."','".$dob."','".$weight."','".$height."');";
+    // $querry2= "insert into stats(uid,dayCount,timeCount,calories) values('".$username."','".$username."','".$username."','".$username."'"
     if(mysqli_query($conn,$querry)){
         echo "<br>New record inserted successfully";
         header("location:../login.php");
@@ -17,5 +18,4 @@
         echo "Error: " . $querry . "<br>" . mysqli_error($conn);
     }
     mysqli_close($conn);
-    
 ?>

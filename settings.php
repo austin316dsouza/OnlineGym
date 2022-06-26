@@ -23,6 +23,35 @@
 
 <body>
     <?php include("./header.php"); ?>
+    
+    <?php
+    include ("./db/dbconnect.php");
+
+    $querry= "select * from user where uid='".$_SESSION["uid"]."';";
+    $result = mysqli_query($conn,$querry);
+    
+
+    $found = false;
+    if(mysqli_num_rows($result)>0){
+        while($row = mysqli_fetch_assoc($result)){
+                $username= $row["username"];
+                $uid= $row["uid"];
+                $email= $row["email"];
+                $phone= $row["phone"];
+                $dob= $row["dob"];
+                $height= $row["height"];
+                $weight= $row["weight"];
+                $bio= $row["bio"];
+                $password=$row["password"];
+                $found = true;
+                
+            
+        }       
+    }else{
+            echo "0 results";
+    }
+    mysqli_close($conn);
+    ?>
 
     <section class="py-5 my-5">
         <div class="container">
@@ -56,31 +85,31 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>User Name</label>
-                                    <input type="text" name="username" class="form-control" value="<?php echo $_SESSION['uname']?>">
+                                    <input type="text" name="username" class="form-control" value="<?php echo $username?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>BirthDate</label>
-                                    <input type="date" name="dob" class="form-control" value="<?php echo $_SESSION['dob']?>">
+                                    <input type="date" name="dob" class="form-control" value="<?php echo $dob?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" name="email" class="form-control" value="<?php echo $_SESSION['email']?>">
+                                    <input type="email" name="email" class="form-control" value="<?php echo $email?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Phone number</label>
-                                    <input type="text" name="phone" class="form-control" value="<?php echo $_SESSION['phone']?>">
+                                    <input type="text" name="phone" class="form-control" value="<?php echo $phone?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Weight</label>
-                                    <input type="float" name="weight" value="<?php echo $_SESSION["weight"]?>" class="form-control"
+                                    <input type="float" name="weight" value="<?php echo $weight?>" class="form-control"
                                         style="width: 150px; display: inline-block;">
                                     <select name="unit" class="form-control"
                                         style="width: 100px; display: inline-block;">
@@ -92,7 +121,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Height</label>
-                                    <input type="float" name="height" value="<?php echo $_SESSION["height"]?>" class="form-control"
+                                    <input type="float" name="height" value="<?php echo $height?>" class="form-control"
                                         style="width: 150px; display: inline-block;">
                                     <select name="hUnit" class="form-control"
                                         style="width: 100px; display: inline-block;">
@@ -105,7 +134,7 @@
                                 <div class="form-group">
                                     <label>Bio</label>
                                     <textarea class="form-control" name="bio"
-                                        rows="4"><?php echo $_SESSION["bio"]?></textarea>
+                                        rows="4"><?php echo $bio?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +150,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Old password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" name="oPass" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -129,13 +158,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>New password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" name="nPass" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Confirm new password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" name="cnPass" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -155,14 +184,13 @@
 <?php
     if(isset($_POST["update"])){
       
-    
+        
       include("./db/dbconnect.php");
       
       $querry='update user set username="'.$_POST["username"].'",email="'.$_POST["email"].'",dob="'.$_POST["dob"].'",phone="'.$_POST["phone"].'",weight="'.$_POST["weight"].'",height="'.$_POST["height"].'",bio="'.$_POST["bio"].'" where uid="'.$_SESSION["uid"].'";';      
       if($conn->query($querry)){
         
-        echo '<script>alert("Update Successful!! please login again!")</script>';
-        header("location:./logout.php");
+        echo '<script>alert("Update Successful!! please refresh the page once")</script>';
     }
     }
 ?>

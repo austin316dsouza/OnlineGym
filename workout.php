@@ -23,15 +23,24 @@
 <body>
     <?php include("./header.php"); ?>
     
+    <?php 
+        $daynum = 1;
+    ?>
 
     <div class="status">
         <div>
             <br>
             <h1>BURN BELLY FAT</h1><br>
-            <h3>Day <span id="daynum">1</span></h3><br>
+            <h3>Day <span id="daynum"><?php echo $daynum ?></span></h3><br>
             <h3>12 Excercises || 15 Minute || ~ 142 Calorie</h3><br>
         </div>
     </div>
+    
+
+    
+    <!-- <script>const appendday = document.getElementById("daynum").innerHTML;
+        console.log("daynum ="+appendday);
+    </script> -->
 
     <div class="startTimer">
         <button id="button-start">Start</button>

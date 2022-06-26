@@ -22,6 +22,14 @@
                 $_SESSION["height"]= $row["height"];
                 $_SESSION["weight"]= $row["weight"];
                 $_SESSION["bio"]= $row["bio"];
+
+                // $querry2= 'select * from stats where uid="'.$_SESSION["uid"].'";'
+                // $result2 = mysqli_query($conn,$querry2);
+                // if(mysqli_num_rows($result2)==0){
+                //      $querry3= "insert into stats(uid,dayCount,timeCount,calories) values('".$_SESSION["uid"]."',1,0.0,0.0);"
+                //      $result3 = mysqli_query($conn,$querry3);
+                // }
+                
                 $found = true;
             
                 header("location:../home.php");
