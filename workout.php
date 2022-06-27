@@ -24,8 +24,44 @@
     <?php include("./header.php"); ?>
     
     <?php 
-        $daynum = 1;
+        include ("./db/dbconnect.php");
+        $daynum;
+        $querry="select * from stats where uid = '".$_SESSION['uid']."';";
+        $result = mysqli_query($conn,$querry);
+        if(mysqli_num_rows($result)>0){
+            while($row = mysqli_fetch_assoc($result)){
+                $daynum=$row["dayCount"];
+                $tTime=$row["timeCount"];
+            }
+        }
+        // mysqli_close($conn);
     ?>
+      <?php
+        // include ("./db/dbconnect.php");
+        // $querry2="update stats set dayCount='".$_GET['day']."',timeCount='".$_GET['time']."' where uid = '".$_SESSION['uid']."';";
+        // if(mysqli_query($conn,$querry2)){
+        // // $daynum;
+        // $querry="select * from stats where uid = '".$_SESSION['uid']."';";
+        // $result = mysqli_query($conn,$querry);
+        // if(mysqli_num_rows($result)>0){
+        //     while($row = mysqli_fetch_assoc($result)){
+        //         $daynum=$row["dayCount"];
+        //         $tTime=$row["timeCount"];
+        //     }
+        // }
+        // }
+    ?>   
+    <?php
+        //  include ("./db/dbconnect.php");
+        //  $querry="select * from stats where uid = '".$_SESSION['uid']."';";
+        //  $result = mysqli_query($conn,$querry);
+        //  if(mysqli_num_rows($result)>0){
+        //      while($row = mysqli_fetch_assoc($result)){
+        //          $daynum=$row["dayCount"];
+        //          $tTime=$row["timeCount"];
+        //      }
+        //  }
+     ?> 
 
     <div class="status">
         <div>
@@ -33,10 +69,19 @@
             <h1>BURN BELLY FAT</h1><br>
             <h3>Day <span id="daynum"><?php echo $daynum ?></span></h3><br>
             <h3>12 Excercises || 15 Minute || ~ 142 Calorie</h3><br>
+            <p id="tTime" style="display: none;"><?php echo $tTime ?></p>
         </div>
+        <form style="display: none;" id="daytimeC" action="" method="post">
+            <input id="dayC" type="text" name="dayC">
+            <input id="timeC" type="text" name="timeC">
+        </form>
     </div>
-    
-
+    <?php
+        //  include ("./db/dbconnect.php");
+        //  $querry2="update stats set dayCount='".$_GET['day']."',timeCount='".$_GET['time']."' where uid = '".$_SESSION['uid']."';";
+        //     mysqli_query($conn,$querry2);
+     ?> 
+   
     
     <!-- <script>const appendday = document.getElementById("daynum").innerHTML;
         console.log("daynum ="+appendday);
@@ -135,3 +180,11 @@
 </body>
 
 </html>
+<?php
+    if(isset($_POST["timeC"]) && isset($_POST["dayC"])){
+        include ("./db/dbconnect.php");
+        $querry2="update stats set dayCount='".$_POST['dayC']."',timeCount='".$_POST['timeC']."' where uid = '".$_SESSION['uid']."';";
+        mysqli_query($conn,$querry2);
+        header("location:./workout.php");
+    }
+?>

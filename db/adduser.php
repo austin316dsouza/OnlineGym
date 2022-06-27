@@ -13,6 +13,14 @@
     // $querry2= "insert into stats(uid,dayCount,timeCount,calories) values('".$username."','".$username."','".$username."','".$username."'"
     if(mysqli_query($conn,$querry)){
         echo "<br>New record inserted successfully";
+        $querry2="select * from user order by uid desc limit 1;";
+        $result2 = mysqli_query($conn,$querry2);
+        if(mysqli_num_rows($result2)>0){
+            while($row = mysqli_fetch_assoc($result2)){
+                $querry3= "insert into stats(uid,dayCount,timeCount,calories) values('".$row["uid"]."',1,0.0,0.0);";
+                mysqli_query($conn,$querry3);
+            }
+        }
         header("location:../login.php");
     }else {
         echo "Error: " . $querry . "<br>" . mysqli_error($conn);

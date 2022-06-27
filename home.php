@@ -25,7 +25,9 @@
     <section class="sec1">
         <div class="maindiv">
             <div class="content">
-                <h3>Be Strong, Be Fit <?php echo $_SESSION["uname"];?></h3>
+                <h3>Be Strong, Be Fit &nbsp &nbsp<span style="font-size: 2.5em;
+    font-weight: 900;
+    color: yellowgreen;"><?php echo $_SESSION["uname"];?></span></h3>
                 <h2>Make yourself stronger than your excuses.</h2>
                 <a href="workout.php" class="btn">GET STARTED</a>
             </div>

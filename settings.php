@@ -169,8 +169,8 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn-primary" name="update"
-                                style="color: yellowgreen; background-color: rgb(0, 75, 4);">Update</button>
+                            <button class="btn btn-primary" name="updatep"
+                                style="color: yellowgreen; background-color: rgb(0, 75, 4);">Update Password</button>
                             <button class="btn btn-light">Cancel</button>
                         </div>
                     </div>
@@ -193,6 +193,35 @@
         echo '<script>alert("Update Successful!! please refresh the page once")</script>';
     }
     }
+    if(isset($_POST["updatep"])){
+        include("./db/dbconnect.php");
+        $querry1="select * from user where uid='".$_SESSION["uid"]."';";
+        $result1 = mysqli_query($conn,$querry1);
+        if(mysqli_num_rows($result1)>0){
+            while($row = mysqli_fetch_assoc($result1)){
+               if($row["password"]==$_POST["oPass"]&&$_POST["nPass"]!=null)
+               {   
+                        if($_POST["nPass"]==$_POST["cnPass"])
+                        {
+                                    $querry2='update user set password="'.$_POST["nPass"].'";';      
+                                    if($conn->query($querry2)){
+                                    
+                                    echo '<script>alert("Password Update Successful!! please refresh the page once")</script>';
+                                    }
+                            
+                        }else{
+                            echo '<script>alert("Password do not match")</script>';
+                        }
+                
+               }else{
+                echo '<script>alert("Incorrect/Missing Password")</script>';
+               }
+            }
+        }
+     
+        
+       
+      }
 ?>
 
     <?php include("./footer.php"); ?>

@@ -8,10 +8,18 @@ var buttonStart = document.getElementById("button-start");
 var buttonStop = document.getElementById("button-stop");
 var buttonCount = document.getElementById("button-count");
 var buttonReset = document.getElementById("button-reset");
+const dayC=document.getElementById("dayC");
+const timeC=document.getElementById("timeC");
+const daytimeC=document.getElementById("daytimeC");
+
 var interval;
 let counter = 0;
-let daynum = 1; // initialise daynum value from stats DB... default 1
-let temp = 0;
+let dnm = Number(appendday.innerHTML);
+console.log("dnm="+dnm);
+let daynum = dnm; 
+console.log(daynum);
+let appendtime = document.getElementById("tTime");
+let temp = Number(appendtime.innerHTML);
 function startTimer() {
   tens++;
   if (tens < 9) {
@@ -59,8 +67,8 @@ function DoneCounter(btn) {
     Btnstyle.style.backgroundColor = "white"
   }
   if (counter == 12) {
-    const time = seconds * 60 + tens;
-    temp = temp + time;
+    const time = Number(seconds * 60 + tens);
+    temp = Number(temp) + Number(time);
     console.log(temp);
     clearInterval(interval);
     tens = "00";
@@ -68,9 +76,14 @@ function DoneCounter(btn) {
     appendSeconds.innerHTML = seconds;
     appendTens.innerHTML = tens;
     //save temp in DB
-    alert("congrats!! You can Have Rest Now")
-    //save daynum in DB
+    // window.location.href = "./workout.php?time="+`${temp}`;
+    // alert("congrats!! You can Have Rest Now")
     daynum++;
+    dayC.value = daynum;
+    timeC.value = temp;
+    daytimeC.submit();
+    // window.location.href = `./workout.php`;
+    //save daynum in DB
     if (daynum == 31) {
       alert("congrats!! You Have Completed 30 days of Fitness course")
       daynum = 0;

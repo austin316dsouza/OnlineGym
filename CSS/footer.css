@@ -19,12 +19,14 @@ footer {
     flex-direction: column;
 }
 
+
 footer .social-icon{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 30px 0px;
+    
 }
 
 footer .social-icon li{
