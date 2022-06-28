@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="CSS/header.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -60,6 +61,28 @@
                 <img src="img/ex6.jpg">
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                $(".work-box").mouseenter(function(){
+                    $(this).animate({
+                        left: '250px',
+                        opacity: '1',
+                        height: '380px',
+                        width: '600px',
+                    });
+                    $(this).css('z-index', 5)
+                });
+                $(".work-box").mouseleave(function(){
+                    $(this).animate({
+                        left: '250px',
+                        opacity: '0.5',
+                        height: '280px',
+                        width: '400px'
+                    });
+                    $(this).css('z-index', 2)
+                });
+            });
+        </script>
     </section>
 
     <div class="separation"></div>

@@ -4,7 +4,7 @@
     {
         header("location:./login.php");
     }
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="CSS/workout.css">
     <link rel="stylesheet" href="CSS/header.css">
     <link rel="stylesheet" href="CSS/footer.css">
-
 </head>
 
 <body>
@@ -33,7 +32,7 @@
                 $tTime=$row["timeCount"];
             }
         }
-    ?>
+        ?>
     <div class="status">
         <div>
             <br>
@@ -41,10 +40,53 @@
             <h3>Day <span id="daynum"><?php echo $daynum ?></span></h3><br>
             <h3>12 Excercises || 15 Minute || ~ 142 Calorie</h3><br>
             <p id="tTime" style="display: none;"><?php echo $tTime ?></p>
+            <form action="workout.php" method="POST">
+                <input style="display: none" type="submit" name="submit" id="submitbut" value="GO"/>
+            </form>
         </div>
+            <?php
+                include 'db/dbconnect.php';
+                $sel = "SELECT * FROM `stats` WHERE `uid` = '".$_SESSION['uid']."'";
+                $req = mysqli_query($conn,$sel);
+                echo '<table style="position: relative; left:850px">';
+                    echo '<tr>';
+                    echo '<th style="border: 1px solid white;padding:5px; text-align: center; width:150px">Days Completed</th>';
+                    echo '<th style="border: 1px solid white;padding:5px; text-align: center; width:150px">Total Time</th>';
+                    echo '<th style="border: 1px solid white;padding:5px; text-align: center; width:150px">Calories Burned</th>';
+                    echo '</tr>';
+                    while($res = mysqli_fetch_array($req)){
+                        $mintime= floor(($res['timeCount']) / 60);
+                        $sectime= ($res['timeCount']) % 60;
+                        $dayco= $res['dayCount'] - 1;
+                        echo '<tr><td style="border: 1px solid white; padding:5px; text-align: center; width:150px; color: yellowgreen;">'.$dayco.'</td><td style="border: 1px solid white; padding:5px; text-align: center; color: yellowgreen;width:150px;">'.$mintime.'min  '.$sectime.'sec'.'</td><td style="border: 1px solid white; padding:5px; text-align: center; color: yellowgreen;width:150px;">'.$res['calories'].'</td></tr>';
+                    }
+                    echo '</table>';
+                    echo '</div>';
+             ?>
+            <script>
+                $(document).ready(function(){
+                    $('#submitbut').click(function(){
+                        var usern = $_SESSION['uid'];
+                        event.preventDefault();
+                    $.ajax({
+                        url:"stats.php",
+                        method:"post",
+                        data:{usern:usern},
+                        dataType:"html",
+                        success:function(data){
+                        $('.stattable').html(data);
+                    }
+                });
+            });
+                });
+            </script>
+    </div>
+    
+
         <form style="display: none;" id="daytimeC" action="" method="post">
             <input id="dayC" type="text" name="dayC">
             <input id="timeC" type="text" name="timeC">
+            <input id="calC" type="text" name="calC">
         </form>
     </div>
     <div class="startTimer">
@@ -129,6 +171,7 @@
             <button class="jojobtn" id="btn12" onclick="DoneCounter('btn12')">DONE</button>
         </div>
     </div>
+    <div class="stattable"></div>
     <?php include("./footer.php"); ?>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -139,8 +182,8 @@
 <?php
     if(isset($_POST["timeC"]) && isset($_POST["dayC"])){
         include ("./db/dbconnect.php");
-        $querry2="update stats set dayCount='".$_POST['dayC']."',timeCount='".$_POST['timeC']."' where uid = '".$_SESSION['uid']."';";
+        $querry2="update stats set dayCount='".$_POST['dayC']."',timeCount='".$_POST['timeC']."',calories='".$_POST['calC']."' where uid = '".$_SESSION['uid']."';";
         mysqli_query($conn,$querry2);
         header("location:./workout.php");
     }
-?>
+    ?>
