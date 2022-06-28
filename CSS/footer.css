@@ -20,16 +20,16 @@ footer {
 }
 
 
-footer .social-icon{
+footer .social-icon {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 30px 0px;
-    
+
 }
 
-footer .social-icon li{
+footer .social-icon li {
     list-style: none;
 }
 

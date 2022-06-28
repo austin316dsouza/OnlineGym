@@ -8,6 +8,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,12 +18,10 @@
     <link rel="stylesheet" href="CSS/header.css">
     <link rel="stylesheet" href="CSS/footer.css">
 </head>
+
 <body>
     <?php include("./header.php"); ?>
-
-    
     <br><br>
-
         <div class="container">
             <div class="row">
                 <div class="col-1">
@@ -47,14 +46,11 @@
                 </div>
             </div>
         </div>
-
-
         <section id="contact">
             <div class="services-info">
                 <h1>Get in<span style="color: yellowgreen;">Touch</span></h1>
                 <p> We are Available</p>
             </div>
-    
             <div class="contact-row">
                 <div class="contact-left-col">
                     <div class="form">
@@ -83,10 +79,7 @@
                 </div>
             </div>
         </section>
-
         <?php include("./footer.php"); ?>
-    
-    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>    
 </body>

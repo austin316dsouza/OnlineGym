@@ -37,23 +37,17 @@
                     <label for="others"> Others </label>&nbsp;
                     <input type="radio" name="gender" value="o"><br><br>
                 </fieldset>
-
                 <br>
-
                 <label for="dob">Date Of Birth :</label>
                 <input type="date" name="dob">
-
                 <br><br>
-
                 <label for="weight">Weight :</label>
                 <input type="float" name="weight">
                 <select name="unit" id="">
                     <option value="kg">KG</option>
                     <option value="lbs">LBS</option>
                 </select>
-
                 <br><br><br>
-
                 <label for="height">Height :</label>
                 <input type="float" name="height">
                 <select name="hUnit" id="">
@@ -81,6 +75,7 @@
             a.style.height = "620px"
             a.style.transition = "0.5s";
         }
+        
         function login() {
             x.style.left = "50px";
             y.style.left = "450px";

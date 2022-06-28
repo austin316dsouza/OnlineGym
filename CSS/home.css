@@ -32,11 +32,7 @@ body {
     background-color: black;
     height: '100%'
 }
-/* .separation{
-    width: 100%;
-    height: 10px;
-    background-color: rgba(78, 78, 78, 0.589);
-} */
+
 .maindiv {
     width: 100%;
     height: 900px;
@@ -318,6 +314,7 @@ textarea {
     border: none;
     transition: .5s linear;
 }
+
 .c_btn:hover {
     transform: scale(1.2);
     background: linear-gradient(150deg, #4e4e4eb7 0%, rgb(0, 0, 0) 90%);

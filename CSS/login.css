@@ -1,25 +1,25 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     font-family: Lemonada;
     font-weight: 600;
 }
 
-.hero{
+.hero {
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../img/login.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/login.jpg);
     background-position: center;
     background-size: cover;
     position: absolute;
 }
 
-.form-box{
+.form-box {
     width: 380px;
     height: 480px;
     position: relative;
     margin: 6% auto;
-    background:  linear-gradient(rgba(255, 255, 255),rgba(106, 255, 93, 0.5));
+    background: linear-gradient(rgba(255, 255, 255), rgba(106, 255, 93, 0.5));
     backdrop-filter: blur(4px);
     box-shadow: 10px 10px 50px rgb(72, 255, 0);
     padding: 5px;
@@ -27,15 +27,15 @@
     border-radius: 50px;
 }
 
-.button-box{
+.button-box {
     width: 240px;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 20px 9px  #0000001f;
+    box-shadow: 0 0 20px 9px #0000001f;
     border-radius: 30px;
 }
 
-.toggle-btn{
+.toggle-btn {
     padding: 10px 30px;
     cursor: pointer;
     background: transparent;
@@ -44,26 +44,26 @@
     position: relative;
 }
 
-#btn{
+#btn {
     top: 0;
     left: 0;
     position: absolute;
     width: 130px;
     height: 100%;
-    background: linear-gradient(to right, #003d08,#15ff00,#003d08);
+    background: linear-gradient(to right, #003d08, #15ff00, #003d08);
     border-radius: 30px;
     transition: 0.5s;
     opacity: 0.6;
 }
 
-.input-group{
+.input-group {
     top: 120px;
     position: absolute;
     width: 280px;
     transition: 0.5s;
 }
 
-.input-field{
+.input-field {
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
@@ -74,7 +74,8 @@
     outline: none;
     background: transparent;
 }
-.submit-btn{
+
+.submit-btn {
     width: 85%;
     padding: 10px 30px;
     cursor: pointer;
@@ -87,22 +88,27 @@
     font-size: 18px;
     font-weight: bolder;
 }
-.submit-btn a{
+
+.submit-btn a {
     text-decoration: none;
     color: black;
 }
-.checkbox{
+
+.checkbox {
     margin: 30px 10px 30px 0;
 }
-span{
+
+span {
     color: #777;
     font-size: 12px;
     bottom: 68px;
     position: absolute;
 }
-#login{
+
+#login {
     left: 50px;
 }
-#register{
+
+#register {
     left: 450px;
 }

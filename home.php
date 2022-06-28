@@ -21,7 +21,6 @@
 
 <body>
     <?php include("./header.php"); ?>
-    
     <section class="sec1">
         <div class="maindiv">
             <div class="content">
@@ -88,7 +87,6 @@
             <h1>Get in<span style="color: yellowgreen;">Touch</span></h1>
             <p> We are Available</p>
         </div>
-
         <div class="contact-row">
             <div class="contact-left-col">
                 <div class="form">
@@ -117,13 +115,9 @@
             </div>
         </div>
     </section>
-
     <?php include("./footer.php"); ?>
-
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
-
 </html>

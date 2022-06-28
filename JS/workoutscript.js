@@ -8,18 +8,17 @@ var buttonStart = document.getElementById("button-start");
 var buttonStop = document.getElementById("button-stop");
 var buttonCount = document.getElementById("button-count");
 var buttonReset = document.getElementById("button-reset");
-const dayC=document.getElementById("dayC");
-const timeC=document.getElementById("timeC");
-const daytimeC=document.getElementById("daytimeC");
-
+const dayC = document.getElementById("dayC");
+const timeC = document.getElementById("timeC");
+const daytimeC = document.getElementById("daytimeC");
 var interval;
 let counter = 0;
 let dnm = Number(appendday.innerHTML);
-console.log("dnm="+dnm);
-let daynum = dnm; 
-console.log(daynum);
+let daynum = dnm;
 let appendtime = document.getElementById("tTime");
 let temp = Number(appendtime.innerHTML);
+
+
 function startTimer() {
   tens++;
   if (tens < 9) {
@@ -39,13 +38,16 @@ function startTimer() {
   }
 }
 
+
 buttonStart.onclick = function () {
   interval = setInterval(startTimer, 1000);
 };
 
+
 buttonStop.onclick = function () {
   clearInterval(interval);
 };
+
 
 buttonReset.onclick = function () {
   clearInterval(interval);
@@ -55,39 +57,36 @@ buttonReset.onclick = function () {
   appendTens.innerHTML = tens;
 }
 
+
 function DoneCounter(btn) {
   counter++;
+
   if (counter <= 12) {
     appendcounter.innerHTML = counter;
-    console.log(counter);
     let Btnstyle = document.getElementById(btn)
     Btnstyle.style.fontSize = "20px"
     Btnstyle.innerHTML = "👍✅"
-
     Btnstyle.style.backgroundColor = "white"
   }
+
   if (counter == 12) {
     const time = Number(seconds * 60 + tens);
     temp = Number(temp) + Number(time);
-    console.log(temp);
     clearInterval(interval);
     tens = "00";
     seconds = "00";
     appendSeconds.innerHTML = seconds;
     appendTens.innerHTML = tens;
-    //save temp in DB
-    // window.location.href = "./workout.php?time="+`${temp}`;
-    // alert("congrats!! You can Have Rest Now")
     daynum++;
     dayC.value = daynum;
     timeC.value = temp;
     daytimeC.submit();
-    // window.location.href = `./workout.php`;
-    //save daynum in DB
+
     if (daynum == 31) {
       alert("congrats!! You Have Completed 30 days of Fitness course")
       daynum = 0;
     }
+    
     counter = 0;
     appendcounter.innerHTML = counter;
     appendday.innerHTML = daynum;

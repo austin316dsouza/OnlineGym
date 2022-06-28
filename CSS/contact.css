@@ -32,7 +32,8 @@ body {
     background-color: black;
     height: '100%'
 }
-.container{
+
+.container {
     justify-content: center;
     width: 100%;
     min-height: 100vh;
@@ -41,29 +42,34 @@ body {
     box-sizing: border-box;
     overflow: hidden;
 }
-.row{
+
+.row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 60px;
     margin-left: 350px;
 }
-.col-1{
+
+.col-1 {
     flex-basis: 40%;
     position: relative;
     margin-left: 50px;
 }
-.col-1 h2{
+
+.col-1 h2 {
     color: white;
     font-size: 54px;
 }
-.col-1 h4{
+
+.col-1 h4 {
     color: white;
     font-size: 20px;
     font-weight: 100;
     margin: 20px 0 10px;
 }
-.col-1::after{
+
+.col-1::after {
     content: '';
     width: 8px;
     height: 100%;
@@ -71,20 +77,23 @@ body {
     left: -40px;
     top: 8px;
 }
-.col-2{
+
+.col-2 {
     position: relative;
     flex-basis: 60%;
     display: flex;
     align-items: center;
 }
-.col-2 .controller{
+
+.col-2 .controller {
     width: 40%;
 }
-.color-box{
+
+.color-box {
     position: absolute;
     top: 0px;
     left: -150px;
-    background: linear-gradient(#d89400,#ffffff,#15ff00);
+    background: linear-gradient(#d89400, #ffffff, #15ff00);
     border-radius: 20px 0 0 20px;
     box-shadow: 15px 5px 25px black;
     height: 100%;
@@ -183,6 +192,7 @@ textarea {
     border: none;
     transition: .5s linear;
 }
+
 .c_btn:hover {
     transform: scale(1.2);
     background: linear-gradient(150deg, #4e4e4eb7 0%, rgb(0, 0, 0) 90%);
