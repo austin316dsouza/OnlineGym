@@ -1,4 +1,5 @@
 <?php 
+   
     session_start();
     if(!$_SESSION["uname"])
     {
@@ -13,7 +14,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SETTINGS</title>
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="CSS/setting.css">
     <link rel="stylesheet" href="CSS/header.css">
 	<link rel="stylesheet" href="CSS/footer.css">
@@ -21,10 +23,14 @@
 
 <body>
     <?php include("./header.php"); ?>
+    
     <?php
     include ("./db/dbconnect.php");
+
     $querry= "select * from user where uid='".$_SESSION["uid"]."';";
     $result = mysqli_query($conn,$querry);
+    
+
     $found = false;
     if(mysqli_num_rows($result)>0){
         while($row = mysqli_fetch_assoc($result)){
@@ -37,10 +43,12 @@
                 $weight= $row["weight"];
                 $bio= $row["bio"];
                 $password=$row["password"];
-                $found = true;       
+                $found = true;
+                
+            
         }       
     }else{
-        echo "0 results";
+            echo "0 results";
     }
     mysqli_close($conn);
     ?>
@@ -171,40 +179,60 @@
             </div>
         </div>
     </section>
-    <?php
-        if(isset($_POST["update"])){ 
-            include("./db/dbconnect.php");
-            $querry='update user set username="'.$_POST["username"].'",email="'.$_POST["email"].'",dob="'.$_POST["dob"].'",phone="'.$_POST["phone"].'",weight="'.$_POST["weight"].'",height="'.$_POST["height"].'",bio="'.$_POST["bio"].'" where uid="'.$_SESSION["uid"].'";';      
-            if($conn->query($querry)){
-                echo '<script>alert("Update Successful!! please refresh the page once")</script>';
-        }
-        }
-        if(isset($_POST["updatep"])){
-            include("./db/dbconnect.php");
-            $querry1="select * from user where uid='".$_SESSION["uid"]."';";
-            $result1 = mysqli_query($conn,$querry1);
-            if(mysqli_num_rows($result1)>0){
-                while($row = mysqli_fetch_assoc($result1)){
-                if($row["password"]==$_POST["oPass"]&&$_POST["nPass"]!=null){   
-                        if($_POST["nPass"]==$_POST["cnPass"]){
-                            $querry2='update user set password="'.$_POST["nPass"].'";';      
-                            if($conn->query($querry2)){
-                                echo '<script>alert("Password Update Successful!! please refresh the page once")</script>';
-                            }
+
+    <!-- Updating -->
+<?php
+    if(isset($_POST["update"])){
+      
+        
+      include("./db/dbconnect.php");
+      
+      $querry='update user set username="'.$_POST["username"].'",email="'.$_POST["email"].'",dob="'.$_POST["dob"].'",phone="'.$_POST["phone"].'",weight="'.$_POST["weight"].'",height="'.$_POST["height"].'",bio="'.$_POST["bio"].'" where uid="'.$_SESSION["uid"].'";';      
+      if($conn->query($querry)){
+        
+        echo '<script>alert("Update Successful!! please refresh the page once")</script>';
+    }
+    }
+    if(isset($_POST["updatep"])){
+        include("./db/dbconnect.php");
+        $querry1="select * from user where uid='".$_SESSION["uid"]."';";
+        $result1 = mysqli_query($conn,$querry1);
+        if(mysqli_num_rows($result1)>0){
+            while($row = mysqli_fetch_assoc($result1)){
+               if($row["password"]==$_POST["oPass"]&&$_POST["nPass"]!=null)
+               {   
+                        if($_POST["nPass"]==$_POST["cnPass"])
+                        {
+                                    $querry2='update user set password="'.$_POST["nPass"].'";';      
+                                    if($conn->query($querry2)){
+                                    
+                                    echo '<script>alert("Password Update Successful!! please refresh the page once")</script>';
+                                    }
+                            
                         }else{
                             echo '<script>alert("Password do not match")</script>';
                         }
-                    }else{
-                        echo '<script>alert("Incorrect/Missing Password")</script>';
-                    }
-                }
-            } 
+                
+               }else{
+                echo '<script>alert("Incorrect/Missing Password")</script>';
+               }
+            }
         }
-    ?>
+     
+        
+       
+      }
+?>
+
     <?php include("./footer.php"); ?>
+
+   
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
