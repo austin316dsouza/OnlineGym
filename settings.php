@@ -203,9 +203,8 @@
                {   
                         if($_POST["nPass"]==$_POST["cnPass"])
                         {
-                                    $querry2='update user set password="'.$_POST["nPass"].'";';      
+                                    $querry2='update user set password='.$_POST["nPass"].' where uid ='.$_SESSION["uid"].';';      
                                     if($conn->query($querry2)){
-                                    
                                     echo '<script>alert("Password Update Successful!! please refresh the page once")</script>';
                                     }
                             
